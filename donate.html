@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doações - Projeto SMP de Terror</title>
+    <link rel="stylesheet" href="./CSS/doacao.css">
+    <script src="./JS/script.js" defer></script>
+</head>
+<body>
+<header>
+    <nav>
+         <ul>
+             <li><a href="index.html">Início</a></li>
+             <li><a href="discord.html">Discord</a></li>
+             <li><a href="doacao.html">Doar</a></li>
+             <li><a href="https://horrorsmp.fandom.com/pt-br/wiki/HSMP_Wiki" target="_blank" rel="noopener noreferrer">Wiki</a></li>
+        </ul>
+    </nav>
+</header>
+    <div class="container">
+        <section class="explicacao">
+            <h1>Apoie o Projeto!</h1>
+            <p>
+                O nosso projeto SMP de terror é voltado para criar uma comunidade envolvente e interativa, 
+                onde os jogadores podem vivenciar histórias e momentos emocionantes em um mundo único. 
+                Toda ajuda é bem-vinda para melhorar ainda mais o servidor e proporcionar uma experiência 
+                imersiva para todos os participantes. Sua doação ajuda a manter o servidor vivo, 
+                desenvolver novos conteúdos e expandir nossa comunidade.
+            </p>
+        </section>
+        <section class="doacao">
+            <h2>Faça sua Doação</h2>
+            <p>Contribua através do PIX e ajude a manter o projeto!</p>
+            <div class="pix-container">
+                <button class="pix-button" onclick="doarViaPix()">Doar via PIX</button>
+                <div id="pix-popup" class="pix-popup">
+                    <div class="pix-popup-content">
+                        <span class="close-btn" onclick="fecharPopup()">&times;</span>
+                        <img src="./img/logo-pix-icone-1024.webp" alt="Logo PIX" class="pix-logo">
+                        <h2>Doação via PIX</h2>
+                        <p>Para doar, use a chave PIX abaixo:</p>
+                        <p class="chave-pix">hsmphorror@gmail.com</p>
+                        <p class="chave-pix">ou</p>
+                        <p class="chave-pix">4f22382f-c338-4225-a948-ba814409978a</p>
+                        <p><strong>Observação:</strong> Inclua seu nickname do discord no campo de descrição da transferência para que possamos identificar sua doação.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

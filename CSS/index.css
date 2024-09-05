@@ -1,0 +1,286 @@
+body {
+    background-color: #000;
+    color: #ff0000;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+}
+
+header {
+    background-color: #111;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ff0000;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+#fog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('./img/fog.png') repeat;
+    opacity: 0.05;
+    animation: moveFog 60s linear infinite;
+    z-index: 1;
+}
+
+@keyframes moveFog {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.intro {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#introVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5;
+    filter: brightness(0.5);
+}
+
+.intro-content {
+    z-index: 2;
+}
+
+.intro h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #c00000;
+}
+
+.intro p {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.intro button {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: 2px solid #ff0000;
+    background-color: #111;
+    color: #ff0000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
+.intro button:hover {
+    background-color: #222;
+}
+
+.scrollText {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.scrollContent {
+    margin-top: 100vh;
+    padding: 50px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.scrollContent h3 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.scrollContent p {
+    font-size: 18px;
+}
+
+body.scrolled .scrollText {
+    opacity: 1;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        text-shadow: 
+            0 0 5px #ff0000,
+            0 0 10px #ff0000,
+            0 0 15px #ff0000,
+            0 0 20px #ff0000;
+        opacity: 1;
+    }
+    50% {
+        text-shadow: 
+            0 0 2px #ff0000,
+            0 0 3px #ff0000,
+            0 0 4px #ff0000,
+            0 0 6px #ff0000,
+            0 0 7px #ff0000,
+            0 0 9px #ff0000,
+            0 0 10px #ff0000;
+        opacity: 0.8;
+    }
+    70% {
+        text-shadow: 
+            0 0 1px #ff0000,
+            0 0 2px #ff0000,
+            0 0 3px #ff0000,
+            0 0 4px #ff0000,
+            0 0 5px #ff0000,
+            0 0 6px #ff0000,
+            0 0 7px #ff0000;
+        opacity: 0.5;
+    }
+}
+
+.flickering-glow {
+    font-size: 48px;
+    text-shadow: 
+        0 0 5px #ff0000,
+        0 0 7px #ff0000,
+        0 0 8px #ff0000,
+        0 0 10px #ff0000;
+    animation: flicker 1.5s infinite alternate;
+    color: #ff0000;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+@keyframes fillSmooth {
+    0% {
+        background-size: 0% 100%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
+}
+
+#startButton {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: 2px solid #ff0000;
+    background: linear-gradient(to right, #ff0000 0%, #ff0000 100%);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.5s ease-in-out;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    position: relative; /* Mantém o botão estático */
+}
+
+#startButton.hold-fill {
+    animation: fillSmooth 7s forwards;
+}
+
+@keyframes shakeViolent {
+    0% {
+        transform: translate(0, 0);
+    }
+    10% {
+        transform: translate(-5px, -5px);
+    }
+    20% {
+        transform: translate(5px, 0px);
+    }
+    30% {
+        transform: translate(-5px, 5px);
+    }
+    40% {
+        transform: translate(5px, -5px);
+    }
+    50% {
+        transform: translate(-5px, 0px);
+    }
+    60% {
+        transform: translate(5px, 5px);
+    }
+    70% {
+        transform: translate(-5px, -5px);
+    }
+    80% {
+        transform: translate(5px, 5px);
+    }
+    90% {
+        transform: translate(-5px, -5px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.intro, header, .intro-content {
+    position: relative; /* Garantir que o tremor não afete o botão */
+}
+
+.intro.hold-shake, header.hold-shake, .intro-content.hold-shake {
+    animation: shakeViolent 1s infinite;
+}
+
+#startButton {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: 2px solid #ff0000;
+    background: linear-gradient(to right, #ff0000 0%, #ff0000 100%);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.5s ease-in-out;
+    color: #ff0000;
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
+#startButton.hold-fill {
+    animation: fillSmooth 3s linear forwards;
+    color: #000;
+}

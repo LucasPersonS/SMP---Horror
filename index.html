@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HorrorSMP</title>
+    <link rel="stylesheet" href="./CSS/index.css">
+    <script src="./JS/scriptindex.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="discord.html">Socials</a></li>
+                <li><a href="donate.html">Doar</a></li>
+                <li><a href="https://horrorsmp.fandom.com/pt-br/wiki/HSMP_Wiki" target="_blank" rel="noopener noreferrer">Wiki</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="intro">
+        <video autoplay muted loop id="introVideo">
+            <source src="./video/fundo.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+        <div class="intro-content">
+            <h1 class="flickering-glow">Bem-vindo ao HorrorSMP</h1>
+            <p>Sua jornada pelo desconhecido começa aqui...</p>
+            <button id="startButton" onmousedown="startPress()" onmouseup="endPress()" onmouseleave="endPress()">Começar Enigma</button>
+        </div>
+    </div>
+    <audio id="buildUpSound" src="./img/buildup.mp3" preload="auto"></audio>
+    <audio id="introSound" src="./video/horrorat.mp3" preload="auto" loop></audio>
+</body>
+</html>
