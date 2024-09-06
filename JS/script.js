@@ -45,3 +45,24 @@ function checkAnswer() {
     // Optionally, check when the user presses any key
     document.addEventListener('keydown', detectDevTools);
 })();
+
+function doarViaPix() {
+    const popup = document.getElementById('pix-popup');
+    const popupContent = document.querySelector('.pix-popup-content');
+    
+    popupContent.classList.remove('slide-out');
+    popup.style.display = 'flex'; 
+}
+
+function fecharPopup() {
+    const popupContent = document.querySelector('.pix-popup-content');
+
+   
+    popupContent.classList.add('slide-out');
+
+    
+    setTimeout(() => {
+        const popup = document.getElementById('pix-popup');
+        popup.style.display = 'none';
+    }, 500); 
+}
