@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Terminal</title>
+    <link rel="stylesheet" href="./CSS/documentos.css">
+    <script src="./JS/hackerAnimation.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="discord.html">Discord</a></li>
+                <li><a href="donate.html">Doar</a></li>
+                <li><a href="https://horrorsmp.fandom.com/pt-br/wiki/HSMP_Wiki">Wiki</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hacker-screen">
+        <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">Corona Terminal - User@Enigma</span>
+        </div>
+        
+        <div id="code-area" class="code-area"></div>
+
+        <!-- Área de input de código -->
+        <div class="input-area">
+            <input type="text" id="user-code" placeholder="Insira seu código..." />
+            <button id="submit-button" onclick="submitCode()">Enviar</button>
+        </div>
+
+        <div id="main-message" class="main-message">DOCUMENTOS RECEBIDOS</div>
+        <button id="download-button" class="download-button" style="display: none;" onclick="downloadDocument()">Baixar Documento</button>
+        <button id="another-download-button" class="download-button" style="display: none;">Astaroth.png</button>
+        <button id="extra-download-button" class="download-button" style="display: none;">manual.pdf</button>
+        <button id="extra-download-button-2" class="download-button" style="display: none;">Fita 001</button>
+        <button id="extra-download-button-3" class="download-button" style="display: none;">Fita 002</button>
+        <button id="extra-download-button-4" class="download-button" style="display: none;">Fita 003</button>
+        <button id="extra-download-button-5" class="download-button" style="display: none;">Fita 004</button>
+        <button id="extra-download-button-6" class="download-button" style="display: none;">Fita 005</button>
+    </div>
+</body>
+</html>

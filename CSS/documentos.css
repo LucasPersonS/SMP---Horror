@@ -1,0 +1,266 @@
+/* Corpo principal */
+body {
+    background-color: #1e1e1e;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Estilo do header */
+header {
+    background-color: #111;
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #00ff00;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: #ff0000;
+}
+
+/* Estilo do terminal visual */
+.hacker-screen {
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #00ff00;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5);
+    margin: 30px;
+    max-height: 600px; /* Altura máxima do terminal */
+    min-width: 900px;
+    max-width: 900px;
+    overflow: hidden; /* Previne rolagem extra na área do terminal */
+}
+
+
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #333;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.red {
+    background-color: #ff605c;
+}
+
+
+.green {
+    background-color: #00ca4e;
+    margin-left: 5px;
+}
+
+.code-area .highlight {
+    color: #ff0000; /* Cor de destaque (vermelho) */
+    font-weight: bold;
+}
+
+.code-area .highlight-password {
+    color: #00ffff; /* Cor de destaque para senha (cyan) */
+    font-weight: bold;
+}
+
+.code-area .highlight-user {
+    color: #ff00ff; /* Cor de destaque para usuário (magenta) */
+    font-weight: bold;
+}
+
+.code-area .highlight-waiting {
+    color: #ffff00; /* Cor de destaque para esperando (amarelo) */
+    font-weight: bold;
+}
+
+.terminal-title {
+    color: #ccc;
+    font-size: 14px;
+    text-align: right;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Estilo da área de código */
+.code-area {
+    font-size: 16px;
+    white-space: pre-wrap;
+    height: 300px; /* Altura fixa da área de código */
+    width: 100%;   /* Largura da área de código (ajustável) */
+    overflow: auto; /* Adiciona barras de rolagem se o conteúdo ultrapassar */
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    padding: 15px;
+    color: #00ff00;
+    margin-top: 10px;
+    box-shadow: inset 0 0 15px #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+}
+#code-area p {
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.code-area::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.code-area::-webkit-scrollbar-track {
+    background: #121212;
+}
+
+.code-area::-webkit-scrollbar-thumb {
+    background: #00ff00;
+    border-radius: 6px;
+}
+
+.code-area::-webkit-scrollbar-thumb:hover {
+    background: #00ca4e;
+}
+
+.user-feedback {
+    color: #ff0000; /* Cor de destaque para feedback do usuário */
+}
+
+
+.input-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.input-area input {
+    padding: 10px;
+    width: 80%;
+    border: 2px solid #00ff00;
+    background-color: #111;
+    color: #00ff00;
+    font-size: 16px;
+    text-align: left;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.input-area input::placeholder {
+    color: #00ff00;
+}
+
+.input-area button {
+    padding: 10px 20px;
+    background-color: #00ff00;
+    border: none;
+    color: black;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px #00ff00;
+    margin-left: 10px;
+}
+
+.input-area button:hover {
+    background-color: #111;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+}
+
+/* Estilo da mensagem principal */
+.main-message {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ff00;
+    text-transform: uppercase;
+    display: none;
+    margin-top: 30px;
+    letter-spacing: 3px;
+}
+
+/* Estilo do botão de download */
+.download-button {
+    display: none;
+    background-color: transparent;
+    border: 2px solid #00ff00;
+    color: #00ff00;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.download-button:hover {
+    background-color: #00ff00;
+    color: black;
+    box-shadow: 0 0 15px #00ff00;
+}
+
+/* Botão de download extra */
+#extra-download-button {
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid #00ff00;
+    color: #00ff00;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+#extra-download-button:hover {
+    background-color: #00ff00;
+    color: black;
+    box-shadow: 0 0 15px #00ff00;
+}
