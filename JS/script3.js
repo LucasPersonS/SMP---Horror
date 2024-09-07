@@ -1,6 +1,6 @@
 function checkAnswer() {
     const answer = document.getElementById('answer').value.toLowerCase();
-    const correctAnswer = "o sentenciado"; // A resposta correta
+    const correctAnswer = "chicoemilybobbylyla"; // A resposta correta
     const submitButton = document.getElementById('submit-btn');
 
     if (answer === correctAnswer) {
@@ -9,7 +9,7 @@ function checkAnswer() {
 
         // Após um atraso de 3 segundos, redireciona para outra página
         setTimeout(() => {
-            window.location.href = "quemsoueu.html"; // Substitua "proxima-pagina.html" pelo URL da página de destino
+            window.location.href = "000.html"; // Substitua "proxima-pagina.html" pelo URL da página de destino
         }, 3000);
     } else {
         alert("Resposta incorreta, tente novamente.");
