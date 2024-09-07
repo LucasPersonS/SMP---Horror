@@ -1,15 +1,14 @@
 function checkAnswer() {
     const answer = document.getElementById('answer').value.toLowerCase();
-    const correctAnswer = "nikolay"; // A resposta correta
+    const correctAnswer = "nikolay"; 
     const submitButton = document.getElementById('submit-btn');
 
     if (answer === correctAnswer) {
-        // Adiciona a classe para o glow verde e efeitos adicionais
+       
         submitButton.classList.add('correct-answer');
 
-        // Após um atraso de 3 segundos, redireciona para outra página
         setTimeout(() => {
-            window.location.href = "documentos.html"; // Substitua "proxima-pagina.html" pelo URL da página de destino
+            window.location.href = "documentos.html"; 
         }, 3000);
     } else {
         alert("Resposta incorreta, tente novamente.");
