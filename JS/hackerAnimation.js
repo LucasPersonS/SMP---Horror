@@ -47,6 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
             mainMessage.style.display = 'block';
             userCodeInput.style.display = 'inline-block';
         }, 9500); 
+
+        setTimeout(() => {
+            codeArea.innerHTML += '<p class="highlight-waiting">Digite "manual" para receber uma instrução da máquina</p>\n\n';
+            codeArea.scrollTop = codeArea.scrollHeight;
+            mainMessage.style.display = 'block';
+            userCodeInput.style.display = 'inline-block';
+        }, 10500); 
     }
 
     function typeText(text, speed) {
