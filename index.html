@@ -27,11 +27,11 @@
             <h1 class="flickering-glow">Bem-vindo ao HorrorSMP</h1>
             <p>Sua jornada pelo desconhecido começa aqui...</p>
             <button id="startButton" 
-        onmousedown="startPress()" 
-        onmouseup="endPress()" 
-        onmouseleave="endPress()"
-        ontouchstart="startPress()" 
-        ontouchend="endPress()">Pressionar para Começar</button>
+        onmousedown="startPress(event)" 
+        onmouseup="endPress(event)" 
+        onmouseleave="endPress(event)"
+        ontouchstart="startPress(event)" 
+        ontouchend="endPress(event)">Pressionar para Começar</button>
         </div>
     </div>
     <audio id="buildUpSound" src="./img/buildup.mp3" preload="auto"></audio>
