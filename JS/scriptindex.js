@@ -1,7 +1,9 @@
 let pressTimer;
 const buildUpSound = document.getElementById('buildUpSound');
+const introVideo = document.getElementById('introVideo'); // Adicione isso para garantir que o vídeo esteja controlado
 
-function startPress() {
+function startPress(event) {
+    event.preventDefault(); // Previne o comportamento padrão para evitar problemas em dispositivos móveis
     const button = document.getElementById('startButton');
     const intro = document.querySelector('.intro');
     const header = document.querySelector('header');
@@ -17,7 +19,8 @@ function startPress() {
     }, 5500); 
 }
 
-function endPress() {
+function endPress(event) {
+    event.preventDefault(); // Previne o comportamento padrão
     const button = document.getElementById('startButton');
     const intro = document.querySelector('.intro');
     const header = document.querySelector('header');
@@ -31,8 +34,8 @@ function endPress() {
     buildUpSound.currentTime = 0;
 }
 
+// Garante que a música de introdução comece após o carregamento
 document.addEventListener('DOMContentLoaded', (event) => {
     const introSound = document.getElementById('introSound');
     introSound.play();
 });
-
