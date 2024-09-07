@@ -9,7 +9,7 @@ function checkAnswer() {
 
         // Após um atraso de 3 segundos, redireciona para outra página
         setTimeout(() => {
-            window.location.href = "yurukari2.html"; // Substitua "proxima-pagina.html" pelo URL da página de destino
+            window.location.href = "documentos.html"; // Substitua "proxima-pagina.html" pelo URL da página de destino
         }, 3000);
     } else {
         alert("Resposta incorreta, tente novamente.");
