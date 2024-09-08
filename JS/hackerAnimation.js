@@ -122,22 +122,20 @@ document.addEventListener('DOMContentLoaded', () => {
             response.textContent = `> Nikolay é um investigador paranormal freelancer.`;
             response.style.color = '#00ff00'; 
         } 
-        
-        if (code === 'Nikolay:idade') {
+        else if (code === 'Nikolay:idade') {
             response.textContent = `> Nikolay deveria ter 35 anos, em 2024.`;
             response.style.color = '#00ff00'; 
         }
-
-        if (code === 'Nikolay:contato') {
+        else if (code === 'Nikolay:contato') {
             response.textContent = `> Você pode me contatar para serviços, via Gmail! "nikolayverdante@gmail.com"`;
             response.style.color = '#00ff00';
         }
-        
         else {
             response.textContent = `> Código inserido: ${code}\n> Código aceito. Aguarde...`;
             response.style.color = '#00ff00'; 
-            createDownloadButtons(code);
+            createDownloadButtons(code); // Chama a função de exibição dos botões de download
         }
+       
         codeArea.appendChild(response);
     }
 
