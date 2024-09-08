@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function isValidCode(code) {
         const validCodes = [
             'manual', 'Astaroth:imagem', 'Audio:01', 'Audio:02', 
-            'Audio:03', 'Audio:04', 'Audio:05', 'Nikolay:trabalho', 'Nikolay:idade', 'Nikolay:contato'
+            'Audio:03', 'Audio:04', 'Audio:05', 'Nikolay:trabalho', 'Nikolay:idade', 'Nikolay:contato', 'ORIS'
         ]; 
         return validCodes.includes(code);
     }
@@ -182,6 +182,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (code === 'Astaroth:imagem') {
             anotherDownloadButton.style.display = 'inline-block';
             anotherDownloadButton.onclick = () => downloadAnotherDocument(code);
+        }
+        if (code === 'ORIS') {
+            document.getElementById('oris-download-button').style.display = 'inline-block';
+            document.getElementById('oris-download-button').onclick = () => downloadOrisImage(code);
         }
         if (code === 'Audio:01') {
             extraDownloadButton2.style.display = 'inline-block';
@@ -231,4 +235,12 @@ document.addEventListener('DOMContentLoaded', () => {
         link.download = 'astaroth.png';
         link.click();
     }
+
+    function downloadOrisImage(code) {
+        const link = document.createElement('a');
+        link.href = './documentos/oris.png'; 
+        link.download = 'oris.png';
+        link.click();
+    }
+    
 });
