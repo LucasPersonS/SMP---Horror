@@ -156,8 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
             response.style.color = '#00ff00';
         }
         else if (code === 'yurukari') {
-            response.textContent = `> Você pode me contatar para serviços, via Gmail! "nikolayverdante@gmail.com"`;
-            response.style.color = '#00ff00';
+            response.textContent = `> ERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERROERRO`;
+            response.style.color = '#ff0000';
         }
         else {
             response.textContent = `> Código inserido: ${code}\n> Código aceito. Aguarde...`;
@@ -227,8 +227,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function downloadAnotherDocument(code) {
         const link = document.createElement('a');
-        link.href = './documentos/Astaroth.png';
-        link.download = 'Astaroth.png';
+        link.href = './documentos/astaroth.png';
+        link.download = 'astaroth.png';
         link.click();
     }
 });
