@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function isValidCode(code) {
         const validCodes = [
             'manual', 'Astaroth:imagem', 'Audio:01', 'Audio:02', 
-            'Audio:03', 'Audio:04', 'Audio:05', 'Nikolay:trabalho', 'Nikolay:idade', 'Nikolay:contato'
+            'Audio:03', 'Audio:04', 'Audio:05', 'Nikolay:trabalho', 'Nikolay:idade', 'Nikolay:contato', 'yurukari'
         ]; 
         return validCodes.includes(code);
     }
