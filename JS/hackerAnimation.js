@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function isValidCode(code) {
         const validCodes = [
             'manual', 'Astaroth:imagem', 'Audio:01', 'Audio:02', 
-            'Audio:03', 'Audio:04', 'Audio:05', 'Nikolay:trabalho', 'Nikolay:idade', 'Nikolay:contato', 'yurukari'
+            'Audio:03', 'Audio:04', 'Audio:05', 'Nikolay:trabalho', 'Nikolay:idade', 'Nikolay:contato'
         ]; 
         return validCodes.includes(code);
     }
@@ -160,8 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
             response.style.color = '#00ff00';
         }
         else {
-            response.textContent = `> ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  `;
-            response.style.color = '#FF0000'; 
+            response.textContent = `> Código inserido: ${code}\n> Código aceito. Aguarde...`;
+            response.style.color = '#00ff00'; 
             createDownloadButtons(code); // Chama a função de exibição dos botões de download
         }
        
