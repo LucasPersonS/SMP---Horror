@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const codeArea = document.getElementById('code-area');
-    const mainMessage = document.getElementById('main-message');
     const downloadButton = document.getElementById('download-button');
     const anotherDownloadButton = document.getElementById('another-download-button');
     const extraDownloadButton = document.getElementById('extra-download-button');
@@ -10,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const extraDownloadButton5 = document.getElementById('extra-download-button-5');
     const extraDownloadButton6 = document.getElementById('extra-download-button-6');
     const userCodeInput = document.getElementById('user-code');
-    
+
     userCodeInput.style.display = 'none';
     downloadButton.style.display = 'none';
     anotherDownloadButton.style.display = 'none';
@@ -20,6 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
     extraDownloadButton4.style.display = 'none';
     extraDownloadButton5.style.display = 'none';
     extraDownloadButton6.style.display = 'none';
+
+    let isAuthenticated = false; // Variável para verificar autenticação
+    let isAwaitingPassword = false; // Variável para verificar se estamos esperando a senha
+
+    let passwordInputListener;
 
     function displayMessagesAndButtons() {
         setTimeout(() => {
@@ -33,27 +37,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1500);
 
         setTimeout(() => {
-            typeText('Insira suas informações:\nUser: Nikolay\nPassword: Verdante@2015\n', 50);
-        }, 2500);
+            typeText('Insira suas informações:\nUsuário: Nikolay ', 50);
+        }, 4500);
 
         setTimeout(() => {
-            codeArea.innerHTML += '<p class="highlight">Validando informações...</p>';
-            codeArea.scrollTop = codeArea.scrollHeight;
-        }, 7000);  
+            codeArea.innerHTML += '\nPassword: <span id="password-display" style="color: #00ff00"></span>';
+        }, 7500);
 
         setTimeout(() => {
-            codeArea.innerHTML += '<p class="highlight-waiting">Usuário conectado!!</p>\n\n';
-            codeArea.scrollTop = codeArea.scrollHeight;
-            mainMessage.style.display = 'block';
+            isAwaitingPassword = true; // Agora estamos esperando a senha
             userCodeInput.style.display = 'inline-block';
-        }, 9500); 
 
-        setTimeout(() => {
-            codeArea.innerHTML += '<p class="highlight-waiting">Digite "manual" para receber uma instrução da máquina</p>\n\n';
-            codeArea.scrollTop = codeArea.scrollHeight;
-            mainMessage.style.display = 'block';
-            userCodeInput.style.display = 'inline-block';
-        }, 10500); 
+            // Adiciona o listener para o campo de entrada da senha e guarda o reference
+            passwordInputListener = (event) => {
+                const passwordDisplay = document.getElementById('password-display');
+                passwordDisplay.textContent = event.target.value; // Display the password in real-time
+            };
+            userCodeInput.addEventListener('input', passwordInputListener);
+        }, 7500);  
     }
 
     function typeText(text, speed) {
@@ -73,9 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.submitCode = function() {
         const userCode = document.getElementById('user-code').value.trim();
+        const passwordDisplay = document.getElementById('password-display');
         const codeArea = document.getElementById('code-area');
         const response = document.createElement('p');
-        response.className = 'user-feedback'; 
+        response.className = 'user-feedback';
 
         downloadButton.style.display = 'none';
         anotherDownloadButton.style.display = 'none';
@@ -93,19 +95,43 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (isValidCode(userCode)) {
-            RespostaChat(userCode);
+        if (isAwaitingPassword) {
+            codeArea.innerHTML += '<p class="highlight">Validando informações...</p>';
+            codeArea.scrollTop = codeArea.scrollHeight;
+
+            setTimeout(() => {
+                if (userCode === 'Verdante@2015') {
+                    isAuthenticated = true;
+                    isAwaitingPassword = false;
+                    codeArea.innerHTML += '<p class="highlight-waiting">Usuário conectado!!</p>\n\n';
+                    codeArea.scrollTop = codeArea.scrollHeight;
+                    codeArea.innerHTML += '<p class="highlight-waiting">Digite "manual" para receber uma instrução da máquina</p>\n\n';
+                    userCodeInput.removeEventListener('input', passwordInputListener); // Remove o event listener
+                } else {
+                    response.textContent = '> Senha incorreta. Tente novamente.';
+                    response.style.color = '#ff0000';
+                    codeArea.appendChild(response);
+                }
+                // Reset the password display after validation
+                passwordDisplay.textContent = '';
+            }, 2000); // Simula tempo de validação
+        } else if (isAuthenticated) {
+            if (isValidCode(userCode)) {
+                RespostaChat(userCode);
+            } else {
+                response.textContent = `> Código inserido: ${userCode}\n> Código inválido. Tente novamente.`;
+                response.style.color = '#ff0000';
+                codeArea.appendChild(response);
+            }
         } else {
-            response.textContent = `> Código inserido: ${userCode}\n> Código inválido. Tente novamente.`;
-            response.style.color = '#ff0000'; 
+            response.textContent = '> Você precisa se autenticar antes de continuar.';
+            response.style.color = '#ff0000';
             codeArea.appendChild(response);
         }
 
-        
         codeArea.scrollTop = codeArea.scrollHeight;
     }
 
-    
     function isValidCode(code) {
         const validCodes = [
             'manual', 'Astaroth:imagem', 'Audio:01', 'Audio:02', 
@@ -114,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return validCodes.includes(code);
     }
 
-    // Função para exibir resposta do chat
     function RespostaChat(code) {
         const response = document.createElement('p');
         response.className = 'user-feedback';
@@ -198,26 +223,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function downloadAnotherDocument(code) {
         const link = document.createElement('a');
-        link.href = './documentos/astaroth.png';
-        link.download = 'astaroth.png';
-        link.click();
-    }
-    function downloadExtraDocument4(code) {
-        const link = document.createElement('a');
-        link.href = './documentos/fita03.mp4';
-        link.download = 'fita003.mp4';
-        link.click();
-    }
-    function downloadExtraDocument5(code) {
-        const link = document.createElement('a');
-        link.href = './documentos/fita04.mp4';
-        link.download = 'relatorio_final.pdf';
-        link.click();
-    }
-    function downloadExtraDocument6(code) {
-        const link = document.createElement('a');
-        link.href = './documentos/fita05.mp4';
-        link.download = 'anexo_secreto.zip';
+        link.href = './documentos/Astaroth.png';
+        link.download = 'Astaroth.png';
         link.click();
     }
 });
