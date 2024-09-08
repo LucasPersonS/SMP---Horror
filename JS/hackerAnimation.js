@@ -155,9 +155,13 @@ document.addEventListener('DOMContentLoaded', () => {
             response.textContent = `> Você pode me contatar para serviços, via Gmail! "nikolayverdante@gmail.com"`;
             response.style.color = '#00ff00';
         }
+        else if (code === 'yurukari') {
+            response.textContent = `> Você pode me contatar para serviços, via Gmail! "nikolayverdante@gmail.com"`;
+            response.style.color = '#00ff00';
+        }
         else {
-            response.textContent = `> Código inserido: ${code}\n> Código aceito. Aguarde...`;
-            response.style.color = '#00ff00'; 
+            response.textContent = `> ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  ERRO  `;
+            response.style.color = '#FF0000'; 
             createDownloadButtons(code); // Chama a função de exibição dos botões de download
         }
        
