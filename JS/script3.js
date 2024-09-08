@@ -1,9 +1,12 @@
 function checkAnswer() {
     const answer = document.getElementById('answer').value.toLowerCase();
-    const correctAnswer = "chicoemilybobbylyla"; // A resposta correta
+    
+    // Array com todas as respostas corretas possíveis
+    const correctAnswers = ["chicoemilybobbylyla", "chicoemilylylabobby"]; 
     const submitButton = document.getElementById('submit-btn');
 
-    if (answer === correctAnswer) {
+    // Verifica se a resposta do usuário está entre as respostas corretas
+    if (correctAnswers.includes(answer)) {
         // Adiciona a classe para o glow verde e efeitos adicionais
         submitButton.classList.add('correct-answer');
 
@@ -15,6 +18,7 @@ function checkAnswer() {
         alert("Resposta incorreta, tente novamente.");
     }
 }
+
 (function() {
     let devtoolsOpen = false;
     const threshold = 160;
