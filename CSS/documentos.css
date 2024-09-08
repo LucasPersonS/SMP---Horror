@@ -46,6 +46,12 @@ nav ul li a:hover {
     color: #ff0000;
 }
 
+.logo {
+    display: none; /* Logo escondida por padrão */
+    width: 100px; /* Ajuste o tamanho conforme necessário */;
+    border: 1px solid #00ff00;
+}
+
 /* Estilo do terminal visual */
 .hacker-screen {
     background-color: #121212;
@@ -263,4 +269,131 @@ nav ul li a:hover {
     background-color: #00ff00;
     color: black;
     box-shadow: 0 0 15px #00ff00;
+}
+
+/* Responsividade para tablets e celulares */
+@media (max-width: 1024px) {
+    .hacker-screen {
+        min-width: 90%;
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .terminal-header {
+        padding: 5px;
+    }
+
+    .terminal-title {
+        font-size: 12px;
+    }
+
+    .code-area {
+        font-size: 14px;
+        height: 250px;
+    }
+
+    .input-area input {
+        width: 70%;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .input-area button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .download-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .main-message {
+        font-size: 20px;
+    }
+}
+
+/* Responsividade para celulares menores */
+@media (max-width: 768px) {
+    .hacker-screen {
+        min-width: 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .terminal-header {
+        padding: 3px;
+    }
+
+    .terminal-title {
+        font-size: 10px;
+    }
+
+    .code-area {
+        font-size: 12px;
+        height: 200px;
+    }
+
+    .input-area input {
+        width: 65%;
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .input-area button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .download-button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .main-message {
+        font-size: 18px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Esconde os links no mobile */
+    }
+
+    .logo {
+        display: block; /* Mostra a logo no mobile */
+        margin: 0 auto; /* Centraliza a logo */
+        border-radius: 15px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hacker-screen {
+        min-width: 90%; /* Ajusta o tamanho no mobile */
+        max-width: 90%;
+        margin: 15px;
+        overflow: auto;
+    }
+
+    .code-area {
+        height: 50vh; /* Aumenta a área de código no mobile */
+    }
 }
