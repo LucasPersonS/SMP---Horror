@@ -208,8 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
             extraDownloadButton6.onclick = () => downloadExtraDocument6(code);
         }
         if (code === 'Missão') {
-            extraDownloadButton6.style.display = 'inline-block';
-            Missao.onclick = () => downloadMissao(code);
+            document.getElementById('missao-download-button').style.display = 'inline-block'; // Mostrar botão de Missão
+            document.getElementById('missao-download-button').onclick = () => downloadMissao(); // Adicionar função de download
         }
     }
     function downloadExtraDocument2(code) {
@@ -246,9 +246,9 @@ document.addEventListener('DOMContentLoaded', () => {
         link.download = 'oris.png';
         link.click();
     }
-    function downloadMissao(code) {
+    function downloadMissao() {
         const link = document.createElement('a');
-        link.href = './documentos/missao.png'; 
+        link.href = './documentos/missao.png'; // Caminho correto para o arquivo
         link.download = 'missao.png';
         link.click();
     }
