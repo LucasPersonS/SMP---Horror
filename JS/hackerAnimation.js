@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function isValidCode(code) {
         const validCodes = [
             'manual', 'Astaroth:imagem', 'Audio:01', 'Audio:02', 
-            'Audio:03', 'Audio:04', 'Audio:05', 'Nikolay:trabalho', 'Nikolay:idade', 'Nikolay:contato', 'ORIS'
+            'Audio:03', 'Audio:04', 'Audio:05', 'Nikolay:trabalho', 'Nikolay:idade', 'Nikolay:contato', 'ORIS', 'Missão'
         ]; 
         return validCodes.includes(code);
     }
@@ -207,6 +207,10 @@ document.addEventListener('DOMContentLoaded', () => {
             extraDownloadButton6.style.display = 'inline-block';
             extraDownloadButton6.onclick = () => downloadExtraDocument6(code);
         }
+        if (code === 'Missão') {
+            extraDownloadButton6.style.display = 'inline-block';
+            Missao.onclick = () => downloadMissao(code);
+        }
     }
     function downloadExtraDocument2(code) {
         const link = document.createElement('a');
@@ -240,6 +244,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const link = document.createElement('a');
         link.href = './documentos/oris.png'; 
         link.download = 'oris.png';
+        link.click();
+    }
+    function downloadMissao(code) {
+        const link = document.createElement('a');
+        link.href = './documentos/missao.png'; 
+        link.download = 'missao.png';
         link.click();
     }
     
