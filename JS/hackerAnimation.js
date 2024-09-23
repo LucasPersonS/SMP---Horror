@@ -151,3 +151,16 @@ document.addEventListener('DOMContentLoaded', () => {
         link.click();
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const hint1 = document.getElementById('hint1');
+    const triggerZone = document.getElementById('trigger-zone');
+
+    // Exibir a dica ao passar o mouse sobre a trigger zone
+    triggerZone.addEventListener('mouseover', () => {
+        hint1.style.display = 'block';
+    });
+
+    triggerZone.addEventListener('mouseout', () => {
+        hint1.style.display = 'none';
+    });
+});
