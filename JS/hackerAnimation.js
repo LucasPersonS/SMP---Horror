@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'Audio:03': './documentos/audio03.mp3',
         'Audio:04': './documentos/audio04.mp3',
         'Audio:05': './documentos/audio05.mp3',
-        'Missão': './documentos/missao.png'
+        'Missão': './documentos/missao.png',
+        '4ST4R0TH': './img/caderno-anotac-nikolay.png'
     };
 
     const validCodes = Object.keys(fileMap); 
