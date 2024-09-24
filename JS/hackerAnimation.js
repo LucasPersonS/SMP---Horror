@@ -105,7 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('password-display').textContent = '';
             }, 2000);
         } else if (isAuthenticated) {
-            if (isValidCode(userCode)) {
+            if (userCode === 'Segredo') {
+                displaySecretLink();
+            } else if (isValidCode(userCode)) {
                 handleValidCode(userCode);
             } else {
                 response.textContent = `> Código inserido: ${userCode}\n> Código inválido. Tente novamente.`;
@@ -151,7 +153,15 @@ document.addEventListener('DOMContentLoaded', () => {
         link.download = fileUrl.split('/').pop(); 
         link.click();
     }
+
+    function displaySecretLink() {
+        const secretLink = document.createElement('p');
+        secretLink.innerHTML = '> Segredo revelado: <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3HalQEf1TYd8kUSp-q31A9ICx9GJNkpoI5l91xDo82YXo6A/viewform?usp=sf_link" target="_blank">Clique aqui para acessar o formulário</a>';
+        secretLink.style.color = '#00ff00';
+        codeArea.appendChild(secretLink);
+    }
 });
+
 document.addEventListener('DOMContentLoaded', () => {
     const hint1 = document.getElementById('hint1');
     const triggerZone = document.getElementById('trigger-zone');
