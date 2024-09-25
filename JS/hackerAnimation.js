@@ -2,9 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const codeArea = document.getElementById('code-area');
     const downloadButton = document.getElementById('download-button');
     const userCodeInput = document.getElementById('user-code');
+    const audioPlayerContainer = document.getElementById('audio-player-container'); // Contêiner para o player de áudio
 
     userCodeInput.style.display = 'none';
     downloadButton.style.display = 'none';
+    audioPlayerContainer.style.display = 'none'; // Ocultar o player de áudio inicialmente
 
     let isAuthenticated = false; 
     let isAwaitingPassword = false; 
@@ -19,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'Audio:04': './documentos/audio04.mp3',
         'Audio:05': './documentos/audio05.mp3',
         'Missão': './documentos/missao.png',
-        '4ST4R0TH': './img/caderno-anotac-nikolay.png'
+        '4ST4R0TH': './img/caderno-anotac-nikolay.png',
+        'Cripta': './documentos/cripta-audio.mp3'
     };
 
     const validCodes = Object.keys(fileMap); 
@@ -78,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         response.className = 'user-feedback';
 
         downloadButton.style.display = 'none';
+        audioPlayerContainer.style.display = 'none'; // Sempre esconder o player de áudio antes de verificar
 
         if (userCode === '') {
             response.textContent = '> Por favor, insira um código.';
@@ -132,9 +136,16 @@ document.addEventListener('DOMContentLoaded', () => {
         response.className = 'user-feedback';
         response.style.color = '#00ff00'; 
 
-        if (fileMap[code]) {
-            response.textContent = `> Código aceito. Baixe o arquivo: ${code}`;
-            showDownloadButton(fileMap[code]);
+        const fileUrl = fileMap[code];
+
+        if (fileUrl) {
+            if (fileUrl.endsWith('.mp3')) {
+                displayAudioPlayer(fileUrl); // Exibir player de áudio se for um arquivo de áudio
+                response.textContent = `> Código aceito. Tocando o áudio: ${code}`;
+            } else {
+                response.textContent = `> Código aceito. Baixe o arquivo: ${code}`;
+                showDownloadButton(fileUrl); // Exibir o botão de download
+            }
         } else {
             response.textContent = '> Nenhum arquivo associado a este código.';
         }
@@ -160,6 +171,16 @@ document.addEventListener('DOMContentLoaded', () => {
         secretLink.style.color = '#00ff00';
         codeArea.appendChild(secretLink);
     }
+
+    function displayAudioPlayer(filePath) {
+        audioPlayerContainer.style.display = 'block';
+        audioPlayerContainer.innerHTML = `
+            <audio controls>
+                <source src="${filePath}" type="audio/mpeg">
+                Seu navegador não suporta a reprodução de áudio.
+            </audio>
+        `;
+    }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -178,32 +199,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 (function() {
     let devtoolsOpen = false;
-    const threshold = 160;
+    const redirectUrl = 'https://m.youtube.com/watch?v=dQw4w9WgXcQ';
 
     function detectDevTools() {
-        const widthThreshold = window.outerWidth - window.innerWidth > threshold;
-        const heightThreshold = window.outerHeight - window.innerHeight > threshold;
-        if ((widthThreshold || heightThreshold) && !devtoolsOpen) {
-            devtoolsOpen = true;
-            window.location.href = 'https://m.youtube.com/watch?v=dQw4w9WgXcQ';
-        } else if (!widthThreshold && !heightThreshold && devtoolsOpen) {
+        // Cria um breakpoint via console.log e mede o tempo de execução
+        const start = new Date();
+        debugger;
+        const time = new Date() - start;
+
+        // Se o tempo de execução for significativo, significa que o DevTools está aberto
+        if (time > 100) {
+            if (!devtoolsOpen) {
+                devtoolsOpen = true;
+                window.location.href = redirectUrl;
+            }
+        } else {
             devtoolsOpen = false;
         }
     }
 
-    // Check DevTools status at regular intervals
+    // Verifica a cada segundo
     setInterval(detectDevTools, 1000);
 
-    // Check when the page is loaded
+    // Verifica ao carregar a página
     window.addEventListener('load', detectDevTools);
 
-    // Check when the window is resized
+    // Verifica ao redimensionar a janela
     window.addEventListener('resize', detectDevTools);
 
-    // Check when user clicks anywhere on the page
+    // Verifica ao clicar em qualquer parte da página
     document.addEventListener('click', detectDevTools);
 
-    // Optionally, check when the user presses any key
+    // Verifica ao pressionar qualquer tecla
     document.addEventListener('keydown', detectDevTools);
 })();
-
