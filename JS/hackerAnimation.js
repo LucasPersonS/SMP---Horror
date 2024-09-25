@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'Audio:05': './documentos/audio05.mp3',
         'Missão': './documentos/missao.png',
         '4ST4R0TH': './img/caderno-anotac-nikolay.png',
-        'Cripta': './documentos/cripta-audio.mp3'
+        'Cripta': './documentos/cripta-audio.mp3',
+        'Cripta:documento': './documentos/cripta.png',
+        'Cripta:artefato:': './documentos/artefato.png'
     };
 
     const validCodes = Object.keys(fileMap); 
