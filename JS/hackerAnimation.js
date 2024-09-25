@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Cripta': './documentos/cripta-audio.mp3',
         'Cripta:documento': './documentos/cripta.png',
         'Cripta:manuscrito:': './documentos/artefato.png',
-        'Cripta:nizario:': './documentos/nizariocripta.png',
+        'Cripta:nizario:': './documentos/nizariocripta.png'
     };
 
     const validCodes = Object.keys(fileMap); 
