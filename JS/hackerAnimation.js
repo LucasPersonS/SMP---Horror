@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
         '4ST4R0TH': './img/caderno-anotac-nikolay.png',
         'Cripta': './documentos/cripta-audio.mp3',
         'Cripta:documento': './documentos/cripta.png',
-        'Cripta:manuscrito:': './documentos/artefato.png'
+        'Cripta:manuscrito:': './documentos/artefato.png',
+        'Cripta:nizario:': './documentos/nizariocripta.png',
     };
 
     const validCodes = Object.keys(fileMap); 
